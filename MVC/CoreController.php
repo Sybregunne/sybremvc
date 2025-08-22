@@ -14,6 +14,7 @@
 
         public function start(){
             log::v("Executing CoreController->start()");
+            
             $router = Router::get_router();
 
             require_once root . "/App/Routes/web.php";

@@ -84,26 +84,27 @@
          */
         public static function log(string $message, string $type = self::VERBOSE): void
         {
-            $logtype = Config::get("logtype");
+            $logtype = Config::get(Config::APP_LOG);
             $doLogs = false;
-            if ($type!='none') {}
-                switch($logtype) {
-                    case 'debug':
+            switch($logtype) {
+                case Config::APP_LOG_DEBUG:
+                    $doLogs=true;
+                    break;
+                case Config::APP_LOG_VERBOSE:
+                    if($type!=self::DEBUG)
                         $doLogs=true;
-                        break;
-                    case 'verbose':
-                        if($type!=self::DEBUG)
-                            $doLogs=true;
-                        break;
-                    case 'warning':
-                        if($type!=self::VERBOSE && $type!=self::DEBUG)
-                            $doLogs=true;
-                        break;
-                    case 'error':
-                        if($type==self::ERROR) {
-                            $doLogs=true;
-                        }
-                        break;
+                    break;
+                case Config::APP_LOG_WARNING:
+                    if($type!=self::VERBOSE && $type!=self::DEBUG)
+                        $doLogs=true;
+                    break;
+                case Config::APP_LOG_ERROR:
+                    if($type==self::ERROR) {
+                        $doLogs=true;
+                    }
+                    break;
+                default:
+                    $doLogs=false;
             }
             $logger = static::getInstance();
             if ($doLogs) {

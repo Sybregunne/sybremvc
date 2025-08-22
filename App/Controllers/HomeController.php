@@ -1,6 +1,6 @@
 <?php
     namespace App\Controllers;
-    use MVC\View, lib\Controller, lib\Logger as log;
+    use lib\Controller, lib\Logger as log;
 
 
     class HomeController extends Controller {

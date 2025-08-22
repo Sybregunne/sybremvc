@@ -15,6 +15,7 @@
         background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black */
         z-index: 1000; /* Ensure it's above other content */
     }
+
 </style>
 @endsection
 
@@ -25,8 +26,18 @@
             <h1 class="text-success text-lg">Sybre MVC Framework</h1>
             <p>A framework project for learning about MVC</p>
         </div>
-        <div class="row text-center">
-
+        <div class="row">
+            <ul class="nav justify-content-center">
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="#">Sybre MVC Framework</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="#">Documentation</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="#">View Source</a>
+                </li>
+            </ul>
         </div>
     </div>
 </div>
